@@ -1,0 +1,31 @@
+.food-name {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  /* identical to box height, or 144% */
+
+  /* Gray 1 */
+  margin: 8px 0 4px;
+  color: #333333;
+}
+
+.food-image-wrapper {
+  height: 267px;
+  background-size: cover;
+  background-position-y: 40%;
+}
+
+.food-price {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  /* Primary color */
+
+  color: #ff9f0d;
+}

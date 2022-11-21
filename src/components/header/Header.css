@@ -1,0 +1,26 @@
+.header {
+  background: #0d0d0d;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+.header-logo {
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  /* identical to box height, or 133% */
+
+  /* fffffff */
+
+  color: #ffffff;
+}
+
+.header-tools {
+  display: flex;
+  gap: 16px;
+}

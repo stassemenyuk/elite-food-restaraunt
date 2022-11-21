@@ -1,0 +1,1 @@
+export const someAction = (element) => ({ type: 'some-type', element });

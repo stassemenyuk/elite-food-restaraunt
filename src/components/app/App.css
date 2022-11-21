@@ -1,0 +1,12 @@
+.container {
+  max-width: 68.75%;
+  margin: 0 auto;
+}
+
+.orange-text {
+  color: #ff9f0d;
+}
+
+.page {
+  padding-top: 120px;
+}
