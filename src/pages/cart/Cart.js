@@ -1,11 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { deleteFromCart } from '../../reducer/reducer';
+
 import './Cart.css';
 
 export default function Cart() {
-  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cards.cart);
+
   return (
     <div className="cart-page page">
       <div className="cart-container container">
@@ -42,19 +44,36 @@ export default function Cart() {
   );
 }
 
-function CartElement({ img, price, currency, amount, id, total, name }) {
+function CartElement({ img, price, currency, amount, id, total, name, rating }) {
+  const dispatch = useDispatch();
+
+  function deleteElem(id) {
+    dispatch(deleteFromCart(id));
+  }
+
   return (
     <>
       <tr className="cart-element">
         <td className="cart-element__product">
-          <img src={img} alt="product" width={'100px'} height={'100px'} /> {name}
+          <div className="cart-element__picture" style={{ backgroundImage: `url(${img})` }}></div>
+          {name}
         </td>
         <td className="cart-element__price">
           {price} {currency}
         </td>
-        <td className="cart-element__quantity">{amount}</td>
-        <td className="cart-element__total">{total}</td>
-        <td className="cart-element__remove">X</td>
+        <td className="cart-element__quantity">
+          <div className="cart-element__quantity__block">
+            <span>-</span>
+            <span>{amount}</span>
+            <span>+</span>
+          </div>
+        </td>
+        <td className="cart-element__total">
+          {total} {currency}
+        </td>
+        <td className="cart-element__remove" onClick={() => deleteElem(id)}>
+          <span>X</span>
+        </td>
       </tr>
     </>
   );

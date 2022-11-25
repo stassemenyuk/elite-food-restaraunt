@@ -38,6 +38,13 @@ export const cardsSlice = createSlice({
         state.cart = [...state.cart, cartElem];
       }
     },
+    deleteFromCart: (state, action) => {
+      let searchId;
+      state.cart.forEach((item, id) => {
+        if (item.id === action.payload) searchId = id;
+      });
+      state.cart.splice(searchId, 1);
+    },
     getProductInfo: (state, action) => {
       const el = request(`/products/${action.payload}`);
       const { name, pictures, price, rating, category, description, currency, reviewsCount } = el;
@@ -51,7 +58,7 @@ export const cardsSlice = createSlice({
         reviewsCount,
         picture: pictures[0],
       };
-      state.product.similarProducts = request(`/products?category=${category}`);
+      state.product.similarProducts = getSimilarProducts(action.payload, category);
     },
     getCategoryProducts: (state, action) => {
       state.products = request(`/products?category=${action.payload}`);
@@ -59,7 +66,19 @@ export const cardsSlice = createSlice({
   },
 });
 
-export const { getAllElements, addToCart, getCategoryProducts, getProductInfo } =
+function getSimilarProducts(index, category) {
+  const allProductsByCategory = request(`/products?category=${category}`);
+  let searchId;
+  allProductsByCategory.forEach((i, id) => {
+    if (i.id === index) {
+      searchId = id;
+    }
+  });
+  allProductsByCategory.splice(searchId, 1);
+  return allProductsByCategory;
+}
+
+export const { getAllElements, addToCart, getCategoryProducts, getProductInfo, deleteFromCart } =
   cardsSlice.actions;
 
 export default cardsSlice.reducer;
