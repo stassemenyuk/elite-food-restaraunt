@@ -188,7 +188,7 @@ const allInfo = {
       reviewsCount: 10,
       category: 'Burger',
       pictures: [
-        'https://www.seriouseats.com/thmb/WdIUiyRJ67t3eTprlWLHazwO7K8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20210607-OKONIONBURGERS-JANJIGIAN-seriouseats-11-f8f06919bd654526a3766a40536bcc3c.jpg',
+        'https://grillonadime.com/wp-content/uploads/2022/04/ok-fried-onion-burgers-15-2.jpg',
       ],
     },
     {
@@ -258,7 +258,7 @@ const allInfo = {
       reviewsCount: 10,
       category: 'Sandwich',
       pictures: [
-        'https://assets.bonappetit.com/photos/62b1f659a38f8b1339b88af8/5:4/w_2715,h_2172,c_limit/20220615-0622-sandwiches-1746-final%20(1).jpg',
+        'https://images.kitchenstories.io/recipeImages/03_11_ItalienischesSandwichMitParmaschinken_titlePicture.jpg',
       ],
     },
     {
@@ -272,7 +272,7 @@ const allInfo = {
       reviewsCount: 10,
       category: 'Sandwich',
       pictures: [
-        `https://www.seriouseats.com/thmb/FOFHUZtFUfpPnIPQAseHyzbpMfo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/09122022-GrilledCheeseEggplosionRecipe-AmandaSuarez-Hero-eb123d43626f43f4bdd3bc16d497918b.jpg`,
+        `https://www.honeywhatscooking.com/wp-content/uploads/2022/06/Bombay-Grilled-Sandwich29.jpg`,
       ],
     },
     {
@@ -286,7 +286,7 @@ const allInfo = {
       reviewsCount: 10,
       category: 'Pizza',
       pictures: [
-        'https://www.seriouseats.com/thmb/c9291mRIx6n1mtaxIRuypUe4mhs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2017__02__20170216-detroit-style-pizza-47-1500x1125-1-233d75e6021048b3bf3cf28bd59d310b.jpg',
+        'https://assets.epicurious.com/photos/59c2baf0c7319519e1cf1c1c/5:4/w_1665,h_1332,c_limit/zingermans_detroit_pizza_recipe-092017.jpg',
       ],
     },
   ],
