@@ -13,7 +13,7 @@ export default function Products() {
 
   useEffect(() => {
     dispatch(getAllElements());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="products-page page">

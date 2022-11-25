@@ -1,0 +1,129 @@
+.product-info {
+  display: flex;
+}
+
+.product-info-block {
+  flex: 0 0 50%;
+}
+
+.product-info__text-block {
+  padding-left: 55px;
+}
+
+.product-info__img-block img {
+  border-radius: 6px;
+}
+
+.product-info__name {
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+  /* identical to box height, or 117% */
+  font-feature-settings: 'kern' off;
+  /* Gray 1 */
+  margin-bottom: 24px;
+  color: #333333;
+}
+
+.product-info__description {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  /* or 144% */
+  /* Gray 2 */
+  color: #4f4f4f;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 32px;
+}
+
+.product-info__price {
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40px;
+  /* identical to box height, or 125% */
+
+  /* Gray 1 */
+  margin-bottom: 16px;
+  color: #333333;
+}
+
+.product-info__rating {
+  margin-bottom: 24px;
+}
+
+.product-info__rating span {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  /* Gray 3 */
+  padding: 0 16px;
+  color: #828282;
+  border-right: 1px solid #a9a9a9;
+}
+
+.product-info__rating span:last-child {
+  border-right: none;
+}
+
+.product-info__add-to-cart {
+  display: flex;
+}
+
+.amount-block {
+  display: flex;
+  border: 1px solid #828282;
+  margin-right: 16px;
+}
+
+.amount-block div {
+  padding: 12px 24px;
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  /* identical to box height, or 140% */
+
+  /* Gray 1 */
+  border-right: 1px solid #828282;
+  color: #333333;
+}
+
+.amount-block div:last-child {
+  border-right: none;
+}
+
+.amount-button {
+  cursor: pointer;
+}
+
+.add-to-cart-button {
+  cursor: pointer;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  /* identical to box height, or 144% */
+  /* fffffff */
+  padding: 12px 24px;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  background: #ff9f0d;
+}
+
+.add-to-cart-button img {
+  margin-right: 8px;
+}

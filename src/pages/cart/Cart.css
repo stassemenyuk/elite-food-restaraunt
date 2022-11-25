@@ -1,0 +1,73 @@
+.cart-products-block {
+  width: 100%;
+}
+
+.cart-products-header {
+  text-align: left;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  /* or 144% */
+
+  /* Gray 1 */
+
+  color: #333333;
+}
+
+.cart-element td {
+  padding: 32px 0 18px;
+}
+
+.cart-element__product {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  /* identical to box height, or 144% */
+
+  /* Gray 1 */
+
+  color: #333333;
+}
+
+.cart-element__price {
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  /* Gray 1 */
+
+  color: #333333;
+}
+
+.cart-element__quantity {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  /* Gray 1 */
+
+  color: #333333;
+}
+
+.cart-element__total {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  /* Gray 1 */
+
+  color: #333333;
+}
