@@ -16,7 +16,7 @@ export default function Product() {
   const [amountOfProduct, setAmount] = useState(1);
 
   useEffect(() => {
-    dispatch(getProductInfo(id));
+    dispatch(getProductInfo(+id));
   }, [dispatch, id]);
 
   const { picture, name, description, price, currency, reviewsCount, rating, category } =
