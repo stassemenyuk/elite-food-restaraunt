@@ -1,11 +1,11 @@
-.products-cards {
+.cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
   flex-grow: 1;
 }
 
-.products-tools {
+.tools {
   display: flex;
   gap: 32px;
   font-family: 'Inter';
@@ -20,23 +20,27 @@
   color: #333333;
 }
 
-.products-wrapper {
+.wrapper {
   display: flex;
   gap: 24px;
 }
 
-.products-filters {
+.filters {
   display: flex;
   flex-direction: column;
+  border: 1px solid #f2f2f2;
+  border-radius: 6px;
+  padding: 24px 30px;
+  height: fit-content;
 }
 
-.category-panel form {
+.form {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.filter-title {
+.filter_title {
   font-family: 'Helvetica';
   font-style: normal;
   font-weight: 700;
@@ -49,7 +53,7 @@
   color: #333333;
 }
 
-.category-form__item {
+.form__item {
   font-family: 'Helvetica';
   font-style: normal;
   font-weight: 400;
@@ -61,4 +65,26 @@
   display: flex;
   gap: 8px;
   color: #333333;
+}
+
+.input_wrapper {
+  display: flex;
+}
+
+.input_wrapper input {
+  background: rgba(255, 159, 13, 0.1);
+  padding: 10px 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+  color: #828282;
+  max-width: 200px;
+}
+
+.search_icon {
+  padding: 13px;
+  background: #ff9f0d;
 }

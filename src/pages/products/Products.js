@@ -1,46 +1,61 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getAllElements, getCategoryProducts } from '../../reducer/reducer';
+import { getAllElements, getByCategory } from './productsActions';
 
 import FoodCard from '../../components/food-card/FoodCard';
 
-import './Products.css';
+import styles from './Products.module.css';
+
+import searchIcon from '../../assets/svg/MagnifyingGlass.svg';
 
 export default function Products() {
-  const products = useSelector((state) => state.cards.products);
+  const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
+  const [input, setInput] = useState('');
+
   useEffect(() => {
-    dispatch(getAllElements());
+    dispatch(getAllElements);
   }, [dispatch]);
 
   return (
-    <div className="products-page page">
-      <div className="products-container container">
-        <div className="products-tools">
-          <div className="tools__sort-by">Sort by:</div>
-          <div className="tools__show">Show:</div>
+    <div className="page">
+      <div className="container">
+        <div className={styles.tools}>
+          <div>Sort by:</div>
+          <div>Show:</div>
         </div>
-        <div className="products-wrapper">
-          <div className="products-cards">
-            {products.map((i) => {
-              return (
-                <FoodCard
-                  name={i.name}
-                  price={i.price}
-                  img={i.pictures[0]}
-                  key={i.id}
-                  id={i.id}
-                  currency={i.currency}
-                />
-              );
-            })}
+        <div className={styles.wrapper}>
+          <div className={styles.cards}>
+            {products
+              .filter((el) => el.name.includes(input))
+              .map((i) => {
+                return (
+                  <FoodCard
+                    name={i.name}
+                    price={i.price}
+                    img={i.pictures[0]}
+                    key={i.id}
+                    id={i.id}
+                    currency={i.currency}
+                  />
+                );
+              })}
           </div>
-          <div className="products-filters">
-            <div className="search-panel"></div>
-            <div className="category-panel">
-              <h3 className="filter-title">Category</h3>
+          <div className={styles.filters}>
+            <div className={styles.input_wrapper}>
+              <input
+                type="text"
+                placeholder="Search Product"
+                onChange={(e) => setInput(e.target.value)}
+              />
+              <div className={styles.search_icon}>
+                <img src={searchIcon} alt="magnifying glass" width={'20px'} height="20px" />
+              </div>
+            </div>
+            <div>
+              <h3 className={styles.filter_title}>Category</h3>
               <CategoryForm />
             </div>
             <div className="filter-by-price"></div>
@@ -56,25 +71,29 @@ function CategoryForm() {
   return (
     <form
       action=""
-      className="category-form"
+      className={styles.form}
       onChange={(e) => {
-        dispatch(getCategoryProducts(e.target.id));
+        dispatch(getByCategory(e.target.id));
       }}>
-      <div className="category-form__item">
+      <div className={styles.form__item}>
         <input type="radio" name="category" id="Pizza" />
         <label htmlFor="Pizza">Pizza</label>
       </div>
-      <div className="category-form__item">
+      <div className={styles.form__item}>
         <input type="radio" name="category" id="Sandwich" />
         <label htmlFor="Sandwich">Sandwich</label>
       </div>
-      <div className="category-form__item">
+      <div className={styles.form__item}>
         <input type="radio" name="category" id="Burger" />
         <label htmlFor="Burger">Burger</label>
       </div>
-      <div className="category-form__item">
+      <div className={styles.form__item}>
         <input type="radio" name="category" id="Soup" />
         <label htmlFor="Soup">Soup</label>
+      </div>
+      <div className={styles.form__item}>
+        <input type="radio" name="category" id="All" />
+        <label htmlFor="All">All</label>
       </div>
     </form>
   );

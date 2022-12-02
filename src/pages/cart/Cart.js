@@ -1,80 +1,53 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import CartElement from './CartElement';
+import { getAllElements } from '../products/productsActions';
 
-import { deleteFromCart } from '../../reducer/reducer';
-
-import './Cart.css';
+import styles from './Cart.module.css';
 
 export default function Cart() {
-  const cart = useSelector((state) => state.cards.cart);
+  const cart = useSelector((state) => state.cart);
+  const products = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllElements);
+  }, [dispatch]);
 
   return (
-    <div className="cart-page page">
-      <div className="cart-container container">
-        <table className="cart-products-block">
+    <div className="page">
+      <div className="container">
+        <table className={styles.block}>
           <thead>
             <tr>
-              <th className="cart-products-header">Product</th>
-              <th className="cart-products-header">Price</th>
-              <th className="cart-products-header">Quantity</th>
-              <th className="cart-products-header">Total</th>
-              <th className="cart-products-header">Remove</th>
+              <th className={styles.header}>Product</th>
+              <th className={styles.header}>Price</th>
+              <th className={styles.header}>Quantity</th>
+              <th className={styles.header}>Total</th>
+              <th className={styles.header}>Remove</th>
             </tr>
           </thead>
           <tbody>
             {cart.map((i) => {
+              const product = products.find((element) => {
+                return element.id === i.id;
+              });
               return (
                 <CartElement
-                  key={i.id}
-                  img={i.picture}
-                  price={i.price}
-                  currency={i.currency}
+                  key={product.id}
+                  img={product.pictures[0]}
+                  price={product.price}
+                  currency={product.currency}
                   amount={i.amount}
-                  total={i.total}
-                  name={i.name}
-                  id={i.id}
+                  total={product.price * i.amount}
+                  name={product.name}
+                  id={product.id}
                 />
               );
             })}
           </tbody>
         </table>
       </div>
-      {console.log(cart)}
     </div>
-  );
-}
-
-function CartElement({ img, price, currency, amount, id, total, name, rating }) {
-  const dispatch = useDispatch();
-
-  function deleteElem(id) {
-    dispatch(deleteFromCart(id));
-  }
-
-  return (
-    <>
-      <tr className="cart-element">
-        <td className="cart-element__product">
-          <div className="cart-element__picture" style={{ backgroundImage: `url(${img})` }}></div>
-          {name}
-        </td>
-        <td className="cart-element__price">
-          {price} {currency}
-        </td>
-        <td className="cart-element__quantity">
-          <div className="cart-element__quantity__block">
-            <span>-</span>
-            <span>{amount}</span>
-            <span>+</span>
-          </div>
-        </td>
-        <td className="cart-element__total">
-          {total} {currency}
-        </td>
-        <td className="cart-element__remove" onClick={() => deleteElem(id)}>
-          <span>X</span>
-        </td>
-      </tr>
-    </>
   );
 }

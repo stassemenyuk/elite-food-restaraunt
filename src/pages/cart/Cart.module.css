@@ -1,8 +1,8 @@
-.cart-products-block {
+.block {
   width: 100%;
 }
 
-.cart-products-header {
+.header {
   text-align: left;
   font-family: 'Inter';
   font-style: normal;
@@ -16,11 +16,11 @@
   color: #333333;
 }
 
-.cart-element td {
+.element td {
   padding: 32px 0 18px;
 }
 
-.cart-element__product {
+.product {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
@@ -33,7 +33,7 @@
   color: #333333;
 }
 
-.cart-element__price {
+.price {
   font-family: 'Helvetica';
   font-style: normal;
   font-weight: 400;
@@ -46,7 +46,7 @@
   color: #333333;
 }
 
-.cart-element__quantity {
+.quantity {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
@@ -58,18 +58,18 @@
   color: #333333;
 }
 
-.cart-element__quantity__block {
+.quantity__block {
   border: 1px solid #e0e0e0;
   border-radius: 18px;
   display: flex;
   width: fit-content;
 }
 
-.cart-element__quantity__block span {
+.quantity__block span {
   padding: 8px 15px;
 }
 
-.cart-element__total {
+.total {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
@@ -82,7 +82,7 @@
   color: #333333;
 }
 
-.cart-element__picture {
+.picture {
   width: 100px;
   height: 100px;
   border-radius: 6px;
@@ -91,7 +91,7 @@
   margin-right: 16px;
 }
 
-.cart-element__remove span {
+.remove span {
   cursor: pointer;
   font-family: 'Inter';
   font-style: normal;
@@ -103,6 +103,6 @@
   transition: 0.2s;
 }
 
-.cart-element__remove span:hover {
+.remove span:hover {
   color: #ff9f0d;
 }

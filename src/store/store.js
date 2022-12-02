@@ -1,8 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit'
-import  cardsReducer from '../reducer/reducer'
+import { createStore, applyMiddleware } from 'redux';
 
-export default configureStore({
-  reducer: {
-    cards: cardsReducer,
-  },
-})
+import rootReducer from '../reducer/reducer';
+
+const asyncFunctionMiddleware = (storeAPI) => (next) => (action) => {
+  if (typeof action === 'function') {
+    return action(storeAPI.dispatch, storeAPI.getState);
+  }
+  return next(action);
+};
+
+const store = createStore(rootReducer, applyMiddleware(asyncFunctionMiddleware));
+
+export default store;
