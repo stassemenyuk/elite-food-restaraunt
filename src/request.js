@@ -1,17 +1,20 @@
 export default async function request(url, options = {}) {
-  if (url === '/products') return allInfo.data;
-  if (url.includes('/products/')) {
-    url = url.slice(url.indexOf('/') + 1);
-    url = url.slice(url.indexOf('/') + 1);
-    return getProductById(+url);
-  }
-  if (url.includes('/products?category=')) {
-    url = url.slice(url.indexOf('=') + 1);
-    if (url === 'All') {
-      return allInfo.data;
+  return new Promise((resolve) => {
+    if (url === '/products') setTimeout(() => resolve(allInfo.data), 2000);
+    if (url.includes('/products/')) {
+      url = url.slice(url.indexOf('/') + 1);
+      url = url.slice(url.indexOf('/') + 1);
+      setTimeout(() => resolve(getProductById(+url)), 2000);
     }
-    return getProductsByCategory(url);
-  }
+    if (url.includes('/products?category=')) {
+      url = url.slice(url.indexOf('=') + 1);
+      if (url === 'All') {
+        setTimeout(() => resolve(allInfo.data), 2000);
+        return;
+      }
+      setTimeout(() => resolve(getProductsByCategory(url)), 2000);
+    }
+  });
 }
 
 const allInfo = {
