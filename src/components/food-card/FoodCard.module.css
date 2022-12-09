@@ -1,4 +1,4 @@
-.food-name {
+.name {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -11,13 +11,13 @@
   color: #333333;
 }
 
-.food-image-wrapper {
+.image {
   height: 267px;
   background-size: cover;
   background-position-y: 40%;
 }
 
-.food-price {
+.price {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;

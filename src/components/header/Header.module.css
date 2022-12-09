@@ -1,13 +1,13 @@
 .header {
   background: #0d0d0d;
 }
-.header-container {
+.container {
   display: flex;
   justify-content: space-between;
   padding: 30px;
 }
 
-.header-logo {
+.logo {
   font-family: 'Helvetica';
   font-style: normal;
   font-weight: 700;
@@ -20,7 +20,7 @@
   color: #ffffff;
 }
 
-.header-tools {
+.tools {
   display: flex;
   gap: 16px;
 }

@@ -1,14 +1,20 @@
-export default function request(url, options = {}) {
-  if (url === '/products') return allInfo.data;
-  if (url.includes('/products/')) {
-    url = url.slice(url.indexOf('/') + 1);
-    url = url.slice(url.indexOf('/') + 1);
-    return getProductById(url);
-  }
-  if (url.includes('/products?category=')) {
-    url = url.slice(url.indexOf('=') + 1);
-    return getProductsByCategory(url);
-  }
+export default async function request(url, options = {}) {
+  return new Promise((resolve) => {
+    if (url === '/products') setTimeout(() => resolve(allInfo.data), 2000);
+    if (url.includes('/products/')) {
+      url = url.slice(url.indexOf('/') + 1);
+      url = url.slice(url.indexOf('/') + 1);
+      setTimeout(() => resolve(getProductById(+url)), 2000);
+    }
+    if (url.includes('/products?category=')) {
+      url = url.slice(url.indexOf('=') + 1);
+      if (url === 'All') {
+        setTimeout(() => resolve(allInfo.data), 2000);
+        return;
+      }
+      setTimeout(() => resolve(getProductsByCategory(url)), 2000);
+    }
+  });
 }
 
 const allInfo = {
@@ -299,13 +305,8 @@ const allInfo = {
 };
 
 function getProductById(id) {
-  let el;
-  allInfo.data.forEach((i) => {
-    if (i.id === +id) {
-      el = i;
-    }
-  });
-  return el;
+  const elementIndex = allInfo.data.findIndex((element) => element.id === id);
+  return allInfo.data[elementIndex];
 }
 
 function getProductsByCategory(category) {
